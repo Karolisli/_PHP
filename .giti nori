@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>As,<?php echo date("2")?> ir php</title>
+    </head>
+    <body>
+        <h1>Karolis</h1>- HTML ir PHP asas/e jau nuo 
+            <?php echo date("Y");?> metu
+        <p>Vsikas prasidejo </p><?php echo date("m");?> menesio,<?php echo date("d");?>
+        
+    </body>      
+</html>
