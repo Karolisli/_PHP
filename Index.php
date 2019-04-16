@@ -10,10 +10,11 @@
         
     <!--BLABLABLA-->
     <h2>Paragrafo daina</h2>     
+    
     <!--BLABLABLA-->
     <p>
         as toks vienisas jaunas paragrafas...<!--BLABLABLA-->
     </p>
-    <p> mindau svetimo kodo gatves<!--BLABLABLA--></p>
+<!--    <p> mindau svetimo kodo gatves...BLABLABLA</p>-->
     </body>
 </html> 
