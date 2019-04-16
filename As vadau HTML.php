@@ -8,5 +8,6 @@
         Karolis 
         ?>
         <h1>Karolis</h1>
+        <p>Moku kurti statini turini</p> 
     </body>
 </html>
