@@ -1,5 +1,8 @@
     <?php 
-    $image ="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.g2_yaMGMkQXmywaB-Mr9xgHaHa%26pid%3DApi&f=1"; 
+    $sudas1 = (rand(1,100)) ;
+    $sudas2 = (rand(101,200)) ;
+    $sudas3 = (rand(201,300)) ;
+    $sudas4 = (rand(301,400)) ;
   
     ?>
 
@@ -9,9 +12,9 @@
         <title>Komentarai</title>
     </head>
     <body>
-         <img src= <?php echo ($image);?>>
-         <img src= <?php echo ($image);?>>
-         <img src= <?php echo ($image);?>>
-         <img src= <?php echo ($image);?>>
+        <h1>Skolos skaicuokle <?php echo $sudas1;?></h1>
+        <h2>Jei paemei  jievru <?php echo $sudas2;?></h2>
+        <h3>Su dviem kabanciais grazinsi <?php echo $sudas3;?></h3>
+        <h4>Su vienu kabanciu grazinsi <?php echo $sudas4;?></h4>
     </body>
 </html> 
