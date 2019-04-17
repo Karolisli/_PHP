@@ -1,4 +1,10 @@
-<?php date_default_timezone_set('Europe/Vilnius') ;?>
+    <?php 
+    $string = 'super'; 
+    $integer = 123; 
+    $float = -3.21; 
+    $boolean = true; 
+    $sup = null;
+    ?>
 
 <html>
     <head>
@@ -6,15 +12,10 @@
         <title>Komentarai</title>
     </head>
     <body>
-    <h1>Dainu tekstai <!--BLABLABLA-->
-        
-    <!--BLABLABLA-->
-    <h2>Paragrafo daina</h2>     
-    
-    <!--BLABLABLA-->
-    <p>
-        as toks vienisas jaunas paragrafas...<!--BLABLABLA-->
-    </p>
-<!--    <p> mindau svetimo kodo gatves...BLABLABLA</p>-->
+    <?php echo "string: $string"; ?><br>
+    <?php echo "integer: $integer";  ?> <br>
+    <?php echo "float: $float";  ?> <br>
+    <?php echo "boolean: $boolean"; ?> <br>
+    <?php echo "sup: $sup"; ?> <br>
     </body>
 </html> 
