@@ -1,9 +1,6 @@
     <?php 
-    $string = 'super'; 
-    $integer = 123; 
-    $float = -3.21; 
-    $boolean = true; 
-    $sup = null;
+    $image ="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.g2_yaMGMkQXmywaB-Mr9xgHaHa%26pid%3DApi&f=1"; 
+  
     ?>
 
 <html>
@@ -12,10 +9,9 @@
         <title>Komentarai</title>
     </head>
     <body>
-    <?php echo "string: $string"; ?><br>
-    <?php echo "integer: $integer";  ?> <br>
-    <?php echo "float: $float";  ?> <br>
-    <?php echo "boolean: $boolean"; ?> <br>
-    <?php echo "sup: $sup"; ?> <br>
+         <img src= <?php echo ($image);?>>
+         <img src= <?php echo ($image);?>>
+         <img src= <?php echo ($image);?>>
+         <img src= <?php echo ($image);?>>
     </body>
 </html> 
