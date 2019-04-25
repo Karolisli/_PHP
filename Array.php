@@ -1,20 +1,20 @@
 <?php
 
 $array = [
-    'kiausiniai' => [
-        'name' => 'Kiaušinis',
-        'amount' => 1,
-        'size' => 'didelis',
+    'Petras' => [
+        'name'  => 'Perto Pizdzio',
+        'conditioin' => 'prap*stas',
+        'thing' => 'telefonas',
     ],
-    'baklazanai' => [
-        'name' => 'Baklažanas',
-        'amount' => 1,
-        'size' => 'mazas',
+    'Tomas' => [
+        'name'  => 'Tomo Ablomo',
+        'conditioin' =>'naudojmas',
+        'thing' => 'bulijonas',
     ],
-    'grietine' => [
-        'name' => 'Grietinė',
-        'amount' => 1,
-        'size' => 'mazas',
+    'Ana' => [
+        'name'  => 'Anos Shitkovos',
+        'conditioin' => 'pasibaiges',
+        'thing' => 'rulonas',
     ]
 ];
 
@@ -24,18 +24,18 @@ var_dump($array);
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Array</title>
+        <title>Array3</title>
     </head>
     <body>
-        <div class="produktas">
-            <span class="pavadinimas">
-                <?php print $array['grietine']['name']; ?>
+        <div class="startup">
+            <span class="vardas">
+                <?php print $array['Ana']['name']; ?>
             </span>
-            <span class="kiekis">
-                <?php print $array['grietine']['amount']; ?>   
+            <span class="daiktas">
+                <?php print $array['Ana']['thing']; ?>
             </span>
-            <span class="dydis">
-                <?php print $array['grietine']['size']; ?>
+            <span class="bukle">
+                <?php print $array['Ana']['conditioin']; ?>
             </span>
         </div>
     </body>
