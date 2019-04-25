@@ -1,42 +1,53 @@
 <?php
 
-$array = [
-    'Petras' => [
-        'name'  => 'Perto Pizdzio',
-        'conditioin' => 'prap*stas',
-        'thing' => 'telefonas',
+$lentynos = [
+    'lentyna_1' => [
+            [
+            'produkto_vardas' => 'kiausiniai',
+            'kiekis' => 3,
+        ],
+            [
+            'produkto_vardas' => 'grietine',
+            'kiekis' => 0,
+        ],
+            [
+            'produkto_vardas' => 'jogurtas',
+            'kiekis' => 2,
+        ],
+            [
+            'produkto_vardas' => 'zuvis',
+            'kiekis' => 0,
+        ],
     ],
-    'Tomas' => [
-        'name'  => 'Tomo Ablomo',
-        'conditioin' =>'naudojmas',
-        'thing' => 'bulijonas',
-    ],
-    'Ana' => [
-        'name'  => 'Anos Shitkovos',
-        'conditioin' => 'pasibaiges',
-        'thing' => 'rulonas',
+    'lentyna_2' => [
+            [
+            'produkto_vardas' => 'pienas',
+            'kiekis' => 1,
+        ],
+            [
+            'produkto_vardas' => 'kefyras',
+            'kiekis' => 0,
+        ],
+            [
+            'produkto_vardas' => 'degtine',
+            'kiekis' => 2,
+        ],
+            [
+            'produkto_vardas' => 'keciupas',
+            'kiekis' => 2,
+        ],
     ]
 ];
 
-var_dump($array);
+var_dump($lentynos);
 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Array3</title>
+        <title>Array4</title>
     </head>
     <body>
-        <div class="startup">
-            <span class="vardas">
-                <?php print $array['Ana']['name']; ?>
-            </span>
-            <span class="daiktas">
-                <?php print $array['Ana']['thing']; ?>
-            </span>
-            <span class="bukle">
-                <?php print $array['Ana']['conditioin']; ?>
-            </span>
-        </div>
+        
     </body>
 </html>
