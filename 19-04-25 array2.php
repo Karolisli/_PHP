@@ -1,4 +1,4 @@
- <?php
+<?php
     $mano_atmintis = [
         'Penktadienis',
         'Paskaita',
@@ -10,11 +10,12 @@
         'Pirmadienis',
         'Paskaita'
     ];
+    $rand_flashback = rand(0, count ($mano_atmintis) - 1); 
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Array2</title>
+        <title>Array2+</title>
     </head>
     <body>
         <h1>Kas buvo penktadieni?</h1>
@@ -28,5 +29,9 @@
                 <?php endforeach; ?>
             </ul>
         </p>
+        <h3>Flashback</h3> 
+        <?php 
+            echo '#' .$rand_flashback . ': ' . $mano_atmintis[$rand_flashback]; 
+        ?> 
     </body>
 </html>
