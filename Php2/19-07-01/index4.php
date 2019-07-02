@@ -95,6 +95,16 @@ $form = [
             'value' => '',
             'placeholder' => 'Kimarinskienė'
         ],
+        'age' => [
+            'label' => 'amzius',
+            'type' => 'text',
+            'value' => '',
+            'validators' => [
+                'validate_not_empty',
+            ],
+            'placeholder' => 'amzius',
+            'filter' => FILTER_SANITIZE_NUMBER_INT,
+        ],
     ]
 ];
 
