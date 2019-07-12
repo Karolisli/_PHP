@@ -1,0 +1,1 @@
+{"0":{"team_name":"leg-less"},"1":{"team_name":"loot box"},"2":{"team_name":"king of flies"},"3":{"team_name":"Lord  slug"},"team_index":{"players":[null,null,null]}}
