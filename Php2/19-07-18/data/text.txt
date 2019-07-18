@@ -1,0 +1,1 @@
+[{"team_name":"komanda2","players":["Vytenis","Vytenis","zaidejas","zaidejasd"],"score":0},{"team_name":"komanda1","players":[],"score":0}]
