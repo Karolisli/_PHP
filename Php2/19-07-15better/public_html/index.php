@@ -5,106 +5,22 @@ require '../functions/file.php';
 require '../functions/html/builder.php';
 require '../functions/form/core.php';
 
-
-$form = [
-    'action' => '',
-    'method' => 'POST',
-    'fields' => [
-        'first_name'=> [
-            'type' => 'text',
-            'extra' => [
-                'validators' => [
-                    'validate_not_empty',
-                ]
-            ],
-            'name' => 'first_name',
-            'placeholder' => 'First name'
-        ],
-        'last_name'=> [
-            'type' => 'text',
-            'extra' => [
-                'validators' => [
-                    'validate_not_empty',
-                ]
-            ],
-            'name' => 'last_name',
-            'placeholder' => 'Last name'
-        ],
-        'email' => [
-            'type' => 'email',
-            'extra' => [
-                'validators' => [
-                    'validate_not_empty',
-                    'validate_duplicate'
-                ]
-            ],
-            'name' => 'email',
-            'placeholder' => 'E-mail'
-        ],
-        'password' => [
-            'type' => 'password',
-            'extra' => [
-                'validators' => [
-                    'validate_not_empty',
-                ]
-            ],
-            'name' => 'password',
-            'placeholder' => 'Password'
-        ],
-    ],
-    'callbacks' => [
-        'success' => 'form_success',
-        'fail' => 'form_fail'
-    ],
-];
-
 session_start();
 
-function form_success($filtered_input, &$form) {
-    $here = [
-        'first' => $filtered_input['first_name'],
-        'last' => $filtered_input['last_name'],
-        'email' => $filtered_input['email'],
-        'pass' => $filtered_input['password'],
-    ];
-
-    $_SESSION['teams'][] = $here;
-
-    $data = [];
+function validate_user(){
     $file_data = file_to_array(STORAGE_FILE);
-    if ($file_data) {
-        $data = $file_data;
-    }
-
-    $data[] = $here;
-    
-    array_to_file($data, STORAGE_FILE);
-}
-
-function form_fail($filtered_input, &$form) {
-       var_dump('NOPE!');
-    }
-    
-function validate_duplicate($field_input, &$field){
-    $file_data = file_to_array(STORAGE_FILE);
+    $cookie_mails = $_SESSION['email'] ?? '';
 
     if ($file_data) {
         foreach ($file_data as $file_id => $files) {
-            if ($field_input == $files['email']) {
-                $message = $success ? 'Toks email jau yra' : 'Klaida!';
-                return false;
+            if ($files['email'] == $cookie_mails) {
+                return $files['first'];
             }
         }
     }
-    return true;
 }
 
-$input = get_form_input($form);
-
-if (!empty($input)) {
-    $success = validate_form($input, $form);
-    // $message = $success ? 'Nauja komanda sukurta' : 'Klaida!';
-}
+$user_name = validate_user();
 
 ?>
 <html>
@@ -121,48 +37,10 @@ if (!empty($input)) {
     </head>
     <body>
         <!-- $nav Navigation generator -->
-        <?php require ROOT . '/templates/navigation.tpl.php'; ?>        
+        <?php require '../templates/navigation.tpl.php'; ?>    
         <h1>
-            Welcome to the GAME!!!
-        </h1>
-        <?php if (isset($message)): ?>
-            <div class="message">
-                <span class="text"><?php print $message; ?></span>
-                <span class="close">X</span>
-            </div>
-        <?php endif; ?>
-        <form action='<?php print $form['action']; ?>' method='<?php print $form['method']; ?>'>
-
-        <?php foreach($form['fields'] as $field_id => $field): ?>
-        <input 
-        type='<?php print $field['type']; ?>' 
-        placeholder='<?php print $field['placeholder']; ?>' 
-        name='<?php print $field['name']; ?>'><br>
-
-        <?php endforeach; ?>
-        <button>Submit</button>
-      
-        </form>
+            <?php print 'Welcome' .' '.$user_name; ?>
+        </h1>  
         <!-- $form HTML generator -->
-        <table>
-        <?php if (!empty($_SESSION)): ?>
-        <?php foreach ($_SESSION['teams'] as $key => $value): ?>
-            <tr>
-                <td>
-                    <?php print $value['first']; ?>
-                </td>
-                <td>
-                    <?php print $value['last']; ?>
-                </td>
-                <td>
-                    <?php print $value['email']; ?>
-                </td>
-                <td>
-                    <?php print $value['pass']; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    <?php endif; ?>
-        </table>
     </body>
 </html>

@@ -4,97 +4,59 @@ require '../config.php';
 require '../functions/file.php';
 require '../functions/html/builder.php';
 require '../functions/form/core.php';
-require '../templates/form/input.tpl.php';
-
-
-
 
 $form = [
     'action' => '',
     'method' => 'POST',
-    'callbacks' => [
-        'success' => 'form_success',
-        'fail' => 'form_fail'
-    ],
     'fields' => [
-        'first_name'=> [
-            'type' => 'text',
-            'validators' => [
-                'validate_not_empty',
-                'validate_duplicate'
-            ],
-            'name' => 'first',
-            'placeholder' => 'First name'
-        ],
-        'last_name'=> [
-            'type' => 'text',
-            'validators' => [
-                'validate_not_empty',
-                'validate_duplicate'
-            ],
-            'name' => 'last',
-            'placeholder' => 'Last name'
-        ],
         'email' => [
             'type' => 'email',
-            'validators' => [
-                'validate_not_empty',
-                'validate_duplicate'
+            'extra' => [
+                'validators' => [
+                    'validate_not_empty',
+                ]
             ],
             'name' => 'email',
             'placeholder' => 'E-mail'
         ],
         'password' => [
             'type' => 'password',
-            'validators' => [
-                'validate_not_empty',
-                'validate_duplicate'
+            'extra' => [
+                'validators' => [
+                    'validate_not_empty',
+                ]
             ],
-            'name' => 'pass',
+            'name' => 'password',
             'placeholder' => 'Password'
         ],
     ],
     'callbacks' => [
         'success' => 'form_success',
         'fail' => 'form_fail'
-    ]
+    ],
 ];
 
-function validate_duplicate($field_input, &$field) {
-    $file_data = file_to_array(STORAGE_FILE);
-    if ($file_data) {
-        
-    }
-    return true;
+session_start();
+
+function form_success($filtered_input, &$form) {
+    $here = [
+        'email' => $filtered_input['email'],
+        'pass' => $filtered_input['password'],
+    ];
+
+    $_SESSION = $here;
 }
 
 function form_fail($filtered_input, &$form) {
-//    var_dump('Form failed!');
-}
-
-function form_success($filtered_input, &$form) {
-    $name = [
-        'f-name' => $filtered_input['first_name'],
-        'l-name' => $filtered_input['last_name'],
-        'e-mail' => $filtered_input['email'],
-    ];
-
-    $data = [];
-    $file_data = file_to_array(STORAGE_FILE);
-    if ($file_data) {
-        $data = $file_data;
+        var_dump('fail');
     }
-
-    $data[] = $name;
-    array_to_file($data, STORAGE_FILE);
-}
 
 $input = get_form_input($form);
 
 if (!empty($input)) {
     $success = validate_form($input, $form);
-    $message = $success ? 'Registracija sekminga' : 'Klaida!';
 }
+
 ?>
 <html>
     <head>
@@ -119,7 +81,16 @@ if (!empty($input)) {
             </div>
         <?php endif; ?>
 
+        <form action='<?php print $form['action']; ?>' method='<?php print $form['method']; ?>'>
+            
+        <?php foreach($form['fields'] as $field_id => $field): ?>
+        <input 
+        type='<?php print $field['type']; ?>' 
+        placeholder='<?php print $field['placeholder']; ?>' 
+        name='<?php print $field['name']; ?>'><br>
+        <?php endforeach; ?>
+        <button>Login</button>
+        </form>
         <!-- $form HTML generator -->
-        <?php require '../templates/form.tpl.php'; ?>
     </body>
 </html>
